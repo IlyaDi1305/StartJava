@@ -1,48 +1,45 @@
 package com.startjava.Lesson_2_3_4.calculator;
 
 public class Calculator {
+    private int numberOne;
+    private int numberTwo;
+    private char mathSign;
 
-    private int a;
-    private int b;
-    private char sign;
-
-    public void setA(int a) {
-        this.a = a;
+    public int getNumberOne() {
+        return numberOne;
     }
 
-    public void setB(int b) {
-        this.b = b;
+    public int getNumberTwo() {
+        return numberTwo;
     }
 
-    public void setSign(char sign) {
-        this.sign = sign;
+    public char getMathSign() {
+        return mathSign;
     }
 
-    public void calculate() {
-        int result = 1;
-        switch (sign) {
+    public void setExpression(String expression) {
+        String[] partExp = expression.split(" ");
+        this.numberOne = Integer.parseInt(partExp[0]);
+        this.mathSign = partExp[1].charAt(0);
+        this.numberTwo = Integer.parseInt(partExp[2]);
+    }
+
+    public double calculate() {
+        switch (mathSign) {
             case '+':
-                result = a + b;
-                break;
+                return Math.addExact(numberOne, numberTwo);
             case '-':
-                result = a - b;
-                break;
+                return Math.subtractExact(numberOne, numberTwo);
             case '*':
-                result = a * b;
-                break;
-            case '/':
-                result = a / b;
-                break;
-            case '^':
-                for (int i = b; i > 0; i--) {
-                    result *= a;
-                }
-                break;
+                return Math.multiplyExact(numberOne, numberTwo);
             case '%':
-                result = a % b;
-                break;
+                return Math.floorMod(numberOne, numberTwo);
+            case '/':
+                return (double) numberOne / numberTwo;
+            case '^':
+                return Math.pow(numberOne, numberTwo);
         }
-        System.out.println(a + " " + sign + " " + b + " = " + result);
+        return 0;
     }
 }
 
