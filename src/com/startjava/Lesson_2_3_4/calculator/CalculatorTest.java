@@ -10,8 +10,9 @@ public class CalculatorTest {
         while (!userResponse.equals("нет")) {
             if (userResponse.equals("да")) {
                 System.out.print("Введите математическое выражение: ");
-                calc.setExpression(scan.nextLine());
-                System.out.println(calc.getNumberOne() + " " + calc.getMathSign() + " " + calc.getNumberTwo() + " = " + calc.calculate());
+                String enteredExpression = scan.nextLine();
+                calc.setExpression(enteredExpression);
+                System.out.println(enteredExpression + " = " + calc.calculate());
             }
             System.out.print("Хотите продолжить вычисления? [да/нет]: ");
             userResponse = scan.nextLine();

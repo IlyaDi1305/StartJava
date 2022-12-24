@@ -1,16 +1,16 @@
 package com.startjava.Lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int numberOne;
-    private int numberTwo;
+    private int number1;
+    private int number2;
     private char mathSign;
 
-    public int getNumberOne() {
-        return numberOne;
+    public int getNumber1() {
+        return number1;
     }
 
-    public int getNumberTwo() {
-        return numberTwo;
+    public int getNumber2() {
+        return number2;
     }
 
     public char getMathSign() {
@@ -18,26 +18,26 @@ public class Calculator {
     }
 
     public void setExpression(String expression) {
-        String[] partExp = expression.split(" ");
-        this.numberOne = Integer.parseInt(partExp[0]);
-        this.mathSign = partExp[1].charAt(0);
-        this.numberTwo = Integer.parseInt(partExp[2]);
+        String[] partsExpression = expression.split(" ");
+        number1 = Integer.parseInt(partsExpression[0]);
+        mathSign = partsExpression[1].charAt(0);
+        number2 = Integer.parseInt(partsExpression[2]);
     }
 
     public double calculate() {
         switch (mathSign) {
             case '+':
-                return Math.addExact(numberOne, numberTwo);
+                return Math.addExact(number1, number2);
             case '-':
-                return Math.subtractExact(numberOne, numberTwo);
+                return Math.subtractExact(number1, number2);
             case '*':
-                return Math.multiplyExact(numberOne, numberTwo);
+                return Math.multiplyExact(number1, number2);
             case '%':
-                return Math.floorMod(numberOne, numberTwo);
+                return Math.floorMod(number1, number2);
             case '/':
-                return (double) numberOne / numberTwo;
+                return (double) number1 / number2;
             case '^':
-                return Math.pow(numberOne, numberTwo);
+                return Math.pow(number1, number2);
         }
         return 0;
     }
